@@ -34,7 +34,7 @@
 
     /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 48px; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 18px 5%;
       background: rgba(5,16,31,0.95);
@@ -80,7 +80,7 @@
       min-height: 100vh;
       display: flex; flex-direction: column;
       justify-content: center; align-items: flex-start;
-      padding: 120px 5% 80px;
+      padding: 160px 5% 80px;
       background:
         linear-gradient(135deg, rgba(17,17,17,0.97) 0%, rgba(34,34,34,0.9) 100%),
         repeating-linear-gradient(
@@ -534,7 +534,7 @@
 <body>
 
 <!-- PROMO BANNER -->
-<div id="promo-banner" style="background:linear-gradient(90deg,#0a1929,#1a3a5c,#0a1929);border-bottom:1px solid rgba(192,200,216,0.3);padding:12px 5%;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:center;position:relative;z-index:99;">
+<div id="promo-banner" style="background:linear-gradient(90deg,#0a1929,#1a3a5c,#0a1929);border-bottom:1px solid rgba(192,200,216,0.3);padding:12px 5%;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:center;position:fixed;top:0;left:0;right:0;z-index:101;">
   <span style="font-size:0.85rem;color:var(--text);font-weight:500;">🚗 <strong style="color:var(--gold);">First-Time Customer Special:</strong> Get <strong style="color:var(--gold);">$20 OFF</strong> your first detail — use code <strong style="color:var(--gold);">FIRST20</strong> when booking!</span>
   <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/barea-autocare/30min'});return false;" style="background:var(--gold);color:var(--black);padding:7px 18px;border-radius:2px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;">Claim Offer</a>
   <button onclick="document.getElementById('promo-banner').style.display='none'" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer;line-height:1;">✕</button>
