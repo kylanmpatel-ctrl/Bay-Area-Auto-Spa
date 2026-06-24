@@ -528,6 +528,8 @@
       footer { flex-direction: column; text-align: center; padding: 36px 5%; }
     }
   </style>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
 
@@ -538,9 +540,11 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#service-area">Service Area</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get a Quote</a>
+  <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/barea-autocare/30min'});return false;" class="nav-cta">Book Now</a>
 </nav>
 
 <!-- HERO -->
@@ -567,7 +571,7 @@
     Professional auto detailing brought directly to you. From maintenance washes to full concours-level details — we treat every vehicle like it's our own.
   </p>
   <div class="hero-actions">
-    <a href="#contact" class="btn-primary">Book Your Detail</a>
+    <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/barea-autocare/30min'});return false;" class="btn-primary">Book Your Detail</a>
     <a href="#services" class="btn-outline">View Services</a>
   </div>
   <div class="hero-badge">
@@ -740,6 +744,59 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" style="background:var(--black);">
+  <p class="section-eyebrow">Simple Process</p>
+  <h2 class="section-title">How It Works</h2>
+  <div class="gold-line"></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:0;">
+
+    <div style="padding:44px 36px;text-align:center;position:relative;">
+      <div style="width:64px;height:64px;border-radius:50%;background:rgba(192,200,216,0.1);border:1px solid rgba(192,200,216,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--gold);">1</div>
+      <div style="font-size:1.5rem;margin-bottom:16px;">📅</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:12px;">Book Online</h3>
+      <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">Pick a time that works for you using our online booking. Takes less than 2 minutes.</p>
+    </div>
+
+    <div style="padding:44px 36px;text-align:center;border-left:1px solid var(--border);border-right:1px solid var(--border);position:relative;">
+      <div style="width:64px;height:64px;border-radius:50%;background:rgba(192,200,216,0.1);border:1px solid rgba(192,200,216,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--gold);">2</div>
+      <div style="font-size:1.5rem;margin-bottom:16px;">🚗</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:12px;">We Come To You</h3>
+      <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">Our team shows up at your home or office in SF or South SF with all equipment ready to go.</p>
+    </div>
+
+    <div style="padding:44px 36px;text-align:center;">
+      <div style="width:64px;height:64px;border-radius:50%;background:rgba(192,200,216,0.1);border:1px solid rgba(192,200,216,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--gold);">3</div>
+      <div style="font-size:1.5rem;margin-bottom:16px;">✨</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:12px;">Enjoy The Shine</h3>
+      <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">Sit back while we transform your vehicle. Drive away with a showroom-quality finish.</p>
+    </div>
+
+  </div>
+  <div style="text-align:center;margin-top:52px;">
+    <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/barea-autocare/30min'});return false;" class="btn-primary">Book Your Appointment →</a>
+  </div>
+</section>
+
+<!-- SERVICE AREA MAP -->
+<section id="service-area" style="background:var(--dark);padding-bottom:0;">
+  <p class="section-eyebrow">Where We Serve</p>
+  <h2 class="section-title">Our Service Area</h2>
+  <p class="section-desc">We cover San Francisco and South San Francisco. We also travel across the Bay Bridge and Golden Gate Bridge for a $35 travel fee.</p>
+  <div style="border-radius:8px;overflow:hidden;border:1px solid var(--border);margin-top:0;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.52200019863474!3d37.75781499644442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1234567890"
+      width="100%"
+      height="450"
+      style="border:0;display:block;filter:invert(90%) hue-rotate(180deg);"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
   </div>
 </section>
 
