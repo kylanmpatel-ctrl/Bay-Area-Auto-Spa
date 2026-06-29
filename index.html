@@ -533,7 +533,6 @@
     }
   </style>
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
 
@@ -550,7 +549,7 @@
     <li><a href="#service-area">Service Area</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/barea-autocare/30min'});return false;" class="nav-cta">Book Now</a>
+  <a href="" onclick="openCalendly();return false;" class="nav-cta">Book Now</a>
 </nav>
 
 <!-- HERO -->
@@ -577,7 +576,7 @@
     Professional auto detailing brought directly to you. From maintenance washes to full concours-level details — we treat every vehicle like it's our own.
   </p>
   <div class="hero-actions">
-    <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/barea-autocare/30min'});return false;" class="btn-primary">Book Your Detail</a>
+    <a href="" onclick="openCalendly();return false;" class="btn-primary">Book Your Detail</a>
     <a href="#services" class="btn-outline">View Services</a>
   </div>
   <div class="hero-badge">
@@ -673,8 +672,8 @@
 
     <div class="why-item">
       <div class="why-icon">💬</div>
-      <div class="why-title">Quote Within the Hour</div>
-      <div class="why-text">No games, no delays. Send us your vehicle info and we'll get back to you with a custom quote in under 60 minutes.</div>
+      <div class="why-title">Quote Within Hours</div>
+      <div class="why-text">No games, no delays. Send us your vehicle info and we'll get back to you with a custom quote within hours.</div>
     </div>
 
   </div>
@@ -800,7 +799,7 @@
   </div>
 
   <div style="text-align:center;margin-top:48px;">
-    <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/barea-autocare/30min'});return false;" class="btn-primary">Get This For Your Car →</a>
+    <a href="" onclick="openCalendly();return false;" class="btn-primary">Get This For Your Car →</a>
   </div>
 </section>
 
@@ -933,7 +932,7 @@
 
   </div>
   <div style="text-align:center;margin-top:52px;">
-    <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/barea-autocare/30min'});return false;" class="btn-primary">Book Your Appointment →</a>
+    <a href="" onclick="openCalendly();return false;" class="btn-primary">Book Your Appointment →</a>
   </div>
 </section>
 
@@ -1123,6 +1122,24 @@
     });
   }, { threshold: 0.5 });
   counters.forEach(c => observer.observe(c));
+</script>
+
+
+<script>
+  // Reliable Calendly loader
+  function loadCalendlyScript(callback) {
+    if (window.Calendly) { callback(); return; }
+    var script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.onload = function() { callback(); };
+    document.head.appendChild(script);
+  }
+
+  function openCalendly() {
+    loadCalendlyScript(function() {
+      Calendly.initPopupWidget({ url: 'https://calendly.com/barea-autocare/30min' });
+    });
+  }
 </script>
 
 </body>
