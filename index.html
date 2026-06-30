@@ -342,6 +342,42 @@
     /* ── FAQ ── */
     #faq { background: var(--dark); }
     .faq-list { max-width: 780px; margin-top: 0; }
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 60px;
+      align-items: start;
+    }
+    .faq-side-card {
+      background: var(--mid);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 36px 30px;
+      position: sticky;
+      top: 110px;
+    }
+    .faq-side-icon { font-size: 1.6rem; margin-bottom: 16px; }
+    .faq-side-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .faq-side-text {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .faq-side-phone {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .faq-side-phone:hover { color: var(--gold-light); }
     .faq-item {
       border-bottom: 1px solid var(--border);
     }
@@ -491,6 +527,8 @@
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
+      .faq-layout { grid-template-columns: 1fr; gap: 32px; }
+      .faq-side-card { position: static; }
       /* Nav */
       .nav-links { display: none; }
       nav { padding: 14px 5%; }
@@ -572,7 +610,6 @@
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
-    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -715,6 +752,7 @@
   <p class="section-eyebrow">Common Questions</p>
   <h2 class="section-title">Frequently Asked Questions</h2>
   <div class="gold-line"></div>
+  <div class="faq-layout">
   <div class="faq-list">
 
     <div class="faq-item">
@@ -779,6 +817,16 @@
         <div class="faq-answer-inner">We stand behind our work 100%. If there's anything you're not satisfied with, let us know before we leave and we'll address it on the spot. Your satisfaction is our standard, not an afterthought.</div>
       </div>
     </div>
+
+  </div>
+
+  <div class="faq-side-card">
+    <div class="faq-side-icon">💬</div>
+    <h3 class="faq-side-title">Still have questions?</h3>
+    <p class="faq-side-text">We're happy to walk you through anything — pricing, scheduling, or what to expect on the day. Reach out and we'll get back to you within hours.</p>
+    <a href="tel:4157179895" class="faq-side-phone">📞 415-717-9895</a>
+    <a href="" onclick="openCalendly();return false;" class="btn-primary" style="margin-top:20px;display:inline-block;">Book Your Detail →</a>
+  </div>
 
   </div>
 </section>
