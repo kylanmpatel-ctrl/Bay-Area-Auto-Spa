@@ -1163,8 +1163,46 @@
 </script>
 
 
+<!-- STICKY MOBILE BOOK BAR -->
+<div id="sticky-book-bar" style="position:fixed;bottom:0;left:0;right:0;background:rgba(5,16,31,0.97);backdrop-filter:blur(10px);border-top:1px solid rgba(192,200,216,0.25);padding:12px 16px;z-index:998;display:none;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -8px 24px rgba(0,0,0,0.4);">
+  <div>
+    <div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;">Starting at</div>
+    <div style="font-size:1.1rem;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;">$150</div>
+  </div>
+  <a href="" onclick="openCalendly();return false;" style="flex:1;max-width:220px;background:var(--gold);color:var(--black);text-align:center;padding:13px 20px;border-radius:2px;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Book Now</a>
+</div>
+
+<script>
+  // Show sticky book bar on mobile after scrolling past hero
+  (function() {
+    var bar = document.getElementById('sticky-book-bar');
+    var floating = document.getElementById('floating-call-text');
+    function isMobile() { return window.innerWidth <= 768; }
+    function updateBar() {
+      if (!isMobile()) {
+        bar.style.display = 'none';
+        if (floating) floating.style.bottom = '24px';
+        document.body.style.paddingBottom = '0';
+        return;
+      }
+      if (window.scrollY > window.innerHeight * 0.6) {
+        bar.style.display = 'flex';
+        if (floating) floating.style.bottom = '84px';
+        document.body.style.paddingBottom = '70px';
+      } else {
+        bar.style.display = 'none';
+        if (floating) floating.style.bottom = '24px';
+        document.body.style.paddingBottom = '0';
+      }
+    }
+    window.addEventListener('scroll', updateBar, { passive: true });
+    window.addEventListener('resize', updateBar);
+    updateBar();
+  })();
+</script>
+
 <!-- FLOATING CALL/TEXT BUTTON (mobile) -->
-<div style="position:fixed;bottom:24px;right:20px;z-index:999;display:flex;flex-direction:column;gap:12px;align-items:flex-end;">
+<div id="floating-call-text" style="position:fixed;bottom:24px;right:20px;z-index:999;display:flex;flex-direction:column;gap:12px;align-items:flex-end;transition:bottom 0.2s;">
   <a href="sms:4157179895" style="display:flex;align-items:center;gap:10px;background:#1a3a5c;border:1px solid rgba(192,200,216,0.3);color:var(--text);padding:12px 20px;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.4);white-space:nowrap;">
     💬 Text Us
   </a>
