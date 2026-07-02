@@ -211,6 +211,37 @@
       text-transform: uppercase;
     }
 
+
+    /* Service card tooltips */
+    .service-card .tooltip {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(192,200,216,0.15);
+      border: 1px solid rgba(192,200,216,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; color: var(--gold);
+      font-weight: 700; cursor: help;
+      font-family: 'Inter', sans-serif;
+    }
+    .service-card .tooltip-box {
+      display: none;
+      position: absolute;
+      top: 44px; right: 16px;
+      background: rgba(5,16,31,0.97);
+      border: 1px solid rgba(192,200,216,0.25);
+      border-radius: 6px;
+      padding: 12px 16px;
+      width: 220px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+      z-index: 10;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .service-card .tooltip:hover .tooltip-box,
+    .service-card .tooltip:focus .tooltip-box { display: block; }
     /* ── SECTIONS ── */
     section { padding: 100px 5%; }
     .section-eyebrow {
@@ -250,11 +281,14 @@
       margin-top: 0;
     }
     .service-card {
-      background: var(--mid);
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(192,200,216,0.12);
       padding: 44px 36px;
       position: relative;
       overflow: hidden;
-      transition: background 0.25s, transform 0.25s ease, box-shadow 0.25s ease;
+      transition: background 0.3s, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.3s;
       cursor: default;
     }
     .service-card::before {
@@ -268,9 +302,10 @@
     }
     .service-card:hover::before { transform: scaleX(1); }
     .service-card:hover {
-      background: #333333;
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(192,200,216,0.35);
       transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(192,200,216,0.05);
     }
     .service-num {
       font-family: 'Playfair Display', serif;
@@ -297,8 +332,17 @@
     .service-price {
       font-size: 1.8rem;
       font-weight: 700;
-      color: var(--gold);
+      background: linear-gradient(135deg, #8a9ab0 0%, #ffffff 40%, #C0C8D8 70%, #8a9ab0 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: priceShimmer 4s linear infinite;
       font-family: 'Playfair Display', serif;
+    }
+    @keyframes priceShimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
     }
     .service-price span {
       font-size: 0.85rem;
@@ -623,7 +667,7 @@
 
 <!-- HERO -->
 <section id="hero" style="position:relative;">
-  <div style="display:flex;align-items:center;justify-content:space-between;gap:40px;width:100%;">
+  <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:40px;width:100%;">
     <div style="flex:1;">
       <p class="hero-eyebrow">San Francisco, South San Francisco &amp; Daly City</p>
       <h1 class="hero-headline">
@@ -641,14 +685,14 @@
       </div>
     </div>
   </div>
-  <p class="hero-sub">
+  <p class="hero-sub" style="position:relative;z-index:1;">
     Professional auto detailing brought directly to you. From maintenance washes to full concours-level details — we treat every vehicle like it's our own.
   </p>
-  <div class="hero-actions">
+  <div class="hero-actions" style="position:relative;z-index:1;">
     <a href="" onclick="openCalendly();return false;" class="btn-primary">Book Your Detail</a>
     <a href="#services" class="btn-outline">View Services</a>
   </div>
-  <div class="hero-badge">
+  <div class="hero-badge" style="position:relative;z-index:1;">
     <div class="hero-badge-item">
       <div class="hero-badge-num"><span class="counter" data-target="250" data-suffix="+">0</span></div>
       <div class="hero-badge-label">Cars Detailed</div>
@@ -664,6 +708,37 @@
   </div>
 </section>
 
+
+<!-- TAGLINE BANNER -->
+<div style="background:var(--black);border-top:1px solid rgba(192,200,216,0.1);border-bottom:1px solid rgba(192,200,216,0.1);padding:22px 5%;overflow:hidden;">
+  <div style="display:flex;gap:60px;white-space:nowrap;animation:marquee 18s linear infinite;width:max-content;">
+    <span style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:linear-gradient(90deg,#8a9ab0,#fff,#C0C8D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Clean</span>
+    <span style="color:rgba(192,200,216,0.3);font-size:0.6rem;">✦</span>
+    <span style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:linear-gradient(90deg,#8a9ab0,#fff,#C0C8D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Protect</span>
+    <span style="color:rgba(192,200,216,0.3);font-size:0.6rem;">✦</span>
+    <span style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:linear-gradient(90deg,#8a9ab0,#fff,#C0C8D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Elevate</span>
+    <span style="color:rgba(192,200,216,0.3);font-size:0.6rem;">✦</span>
+    <span style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:linear-gradient(90deg,#8a9ab0,#fff,#C0C8D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Mobile Detailing</span>
+    <span style="color:rgba(192,200,216,0.3);font-size:0.6rem;">✦</span>
+    <span style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:linear-gradient(90deg,#8a9ab0,#fff,#C0C8D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">San Francisco</span>
+    <span style="color:rgba(192,200,216,0.3);font-size:0.6rem;">✦</span>
+    <span style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:linear-gradient(90deg,#8a9ab0,#fff,#C0C8D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Clean</span>
+    <span style="color:rgba(192,200,216,0.3);font-size:0.6rem;">✦</span>
+    <span style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:linear-gradient(90deg,#8a9ab0,#fff,#C0C8D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Protect</span>
+    <span style="color:rgba(192,200,216,0.3);font-size:0.6rem;">✦</span>
+    <span style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:linear-gradient(90deg,#8a9ab0,#fff,#C0C8D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Elevate</span>
+    <span style="color:rgba(192,200,216,0.3);font-size:0.6rem;">✦</span>
+    <span style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;background:linear-gradient(90deg,#8a9ab0,#fff,#C0C8D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Bay Area Auto Care</span>
+    <span style="color:rgba(192,200,216,0.3);font-size:0.6rem;">✦</span>
+  </div>
+</div>
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
 <!-- SERVICES -->
 <section class="reveal" id="services">
   <p class="section-eyebrow">What We Offer</p>
@@ -673,6 +748,7 @@
 
     <div class="service-card">
       <div class="service-num">01</div>
+      <div class="tooltip" tabindex="0">i<div class="tooltip-box">Full exterior wash, clay bar, hand wax, deep interior vacuum, leather condition &amp; spot-free rinse.</div></div>
       <div class="service-name">Full Detail</div>
       <div class="service-desc">The complete treatment — deep interior extraction, full exterior decontamination, clay bar, hand wax, and spot-free rinse. Your car leaves looking better than the day you drove it off the lot.</div>
       <div class="service-price"><span style="font-size:1rem;color:var(--muted);text-decoration:line-through;font-family:Inter,sans-serif;font-weight:400;">$399</span><br/><span style="font-size:0.9rem;font-family:Inter,sans-serif;font-weight:400;color:var(--gold)">Starting at</span><br/>$299 <span>/ vehicle</span></div>
@@ -680,6 +756,7 @@
 
     <div class="service-card">
       <div class="service-num">02</div>
+      <div class="tooltip" tabindex="0">i<div class="tooltip-box">Hand wash, wheel clean, tire dressing &amp; hand wax application. Perfect regular upkeep.</div></div>
       <div class="service-name">Premium Wash &amp; Wax</div>
       <div class="service-desc">A thorough hand wash, wheel clean, tire dressing, and hand wax application to protect your paint and keep heads turning down every block.</div>
       <div class="service-price"><span style="font-size:0.9rem;font-family:Inter,sans-serif;font-weight:400;color:var(--muted)">Starting at</span><br/>$149 <span>/ vehicle</span></div>
@@ -687,6 +764,7 @@
 
     <div class="service-card">
       <div class="service-num">03</div>
+      <div class="tooltip" tabindex="0">i<div class="tooltip-box">Deep vacuum, carpet &amp; fabric shampoo, leather conditioning, dashboard &amp; trim detail, odor elimination.</div></div>
       <div class="service-name">Full Interior Detail</div>
       <div class="service-desc">Deep vacuum, shampoo of all fabric and carpets, leather conditioning, dashboard and trim detailing, and odor elimination. A fresh cabin that smells as good as it looks.</div>
       <div class="service-price"><span style="font-size:0.9rem;font-family:Inter,sans-serif;font-weight:400;color:var(--muted)">Starting at</span><br/>$229 <span>/ vehicle</span></div>
@@ -694,14 +772,25 @@
 
     <div class="service-card">
       <div class="service-num">04</div>
+      <div class="tooltip" tabindex="0">i<div class="tooltip-box">Quick touch-up for vehicles previously detailed with us within the last month.</div></div>
       <div class="service-name">Maintenance Detail</div>
       <div class="service-desc">Designed for vehicles that have already received a previous detail with us. A focused touch-up to keep that fresh finish going — quick, thorough, and no-fuss.<br/><br/><em style="color:var(--gold);font-size:0.82rem;">⚠ Must have had a prior detail with us. Must be booked within 1 month of your last detail.</em></div>
       <div class="service-price"><span style="font-size:0.9rem;font-family:Inter,sans-serif;font-weight:400;color:var(--muted)">Starting at</span><br/>$150 <span>/ vehicle</span></div>
     </div>
 
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="tooltip" tabindex="0">i<div class="tooltip-box">Exterior wash, full decontamination prep &amp; professional ceramic coating for long-term paint protection.</div></div>
+      <div class="service-name">Ceramic Coating</div>
+      <div class="service-desc">The ultimate long-term paint protection. Our professional-grade ceramic coating bonds to your vehicle's surface, creating a hydrophobic shield that repels water, dirt, UV rays, and minor scratches — keeping your car looking freshly detailed for years, not weeks.<br/><br/><em style="color:var(--gold);font-size:0.82rem;">✦ Includes exterior wash &amp; full decontamination prep before coating application.</em></div>
+      <div class="service-price"><span style="font-size:0.9rem;font-family:Inter,sans-serif;font-weight:400;color:var(--muted)">Starting at</span><br/>$499 <span>/ vehicle</span></div>
+    </div>
+
   </div>
 </section>
 
+
+<div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(192,200,216,0.2) 20%,rgba(192,200,216,0.5) 50%,rgba(192,200,216,0.2) 80%,transparent);"></div>
 <!-- WHY CHOOSE US -->
 <section class="reveal" id="why">
   <p class="section-eyebrow">The Difference</p>
@@ -748,6 +837,8 @@
   </div>
 </section>
 
+
+<div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(192,200,216,0.2) 20%,rgba(192,200,216,0.5) 50%,rgba(192,200,216,0.2) 80%,transparent);"></div>
 <!-- FAQ -->
 <section class="reveal" id="faq">
   <p class="section-eyebrow">Common Questions</p>
@@ -835,6 +926,8 @@
 
 
 
+
+<div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(192,200,216,0.2) 20%,rgba(192,200,216,0.5) 50%,rgba(192,200,216,0.2) 80%,transparent);"></div>
 <!-- GALLERY -->
 <section class="reveal" id="gallery" style="background:var(--charcoal);">
   <p class="section-eyebrow">Our Work</p>
@@ -901,6 +994,8 @@
 </script>
 
 
+
+<div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(192,200,216,0.2) 20%,rgba(192,200,216,0.5) 50%,rgba(192,200,216,0.2) 80%,transparent);"></div>
 <!-- REVIEWS -->
 <section class="reveal" id="reviews" style="background:var(--black);">
   <p class="section-eyebrow">Customer Reviews</p>
@@ -983,6 +1078,8 @@
   </div>
 </section>
 
+
+<div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(192,200,216,0.2) 20%,rgba(192,200,216,0.5) 50%,rgba(192,200,216,0.2) 80%,transparent);"></div>
 <!-- HOW IT WORKS -->
 <section class="reveal" id="how-it-works" style="background:var(--black);">
   <p class="section-eyebrow">Simple Process</p>
@@ -1017,6 +1114,8 @@
   </div>
 </section>
 
+
+<div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(192,200,216,0.2) 20%,rgba(192,200,216,0.5) 50%,rgba(192,200,216,0.2) 80%,transparent);"></div>
 <!-- SERVICE AREA MAP -->
 <section class="reveal" id="service-area" style="background:var(--dark);padding-bottom:0;">
   <p class="section-eyebrow">Where We Serve</p>
@@ -1035,6 +1134,8 @@
   </div>
 </section>
 
+
+<div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(192,200,216,0.2) 20%,rgba(192,200,216,0.5) 50%,rgba(192,200,216,0.2) 80%,transparent);"></div>
 <!-- CONTACT -->
 <section class="reveal" id="contact">
   <p class="section-eyebrow">Get in Touch</p>
@@ -1091,6 +1192,7 @@
               <option>Premium Wash &amp; Wax — $149</option>
               <option>Full Interior Detail — $229</option>
               <option>Maintenance Detail — $150</option>
+              <option>Ceramic Coating — $499</option>
               <option>Not sure — need a custom quote</option>
             </select>
           </div>
@@ -1293,6 +1395,57 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   revealEls.forEach(el => revealObserver.observe(el));
+</script>
+
+
+<script>
+// Hero particle shimmer
+(function() {
+  var canvas = document.getElementById('hero-particles');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var count = 70;
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for (var i = 0; i < count; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + 0.3,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: (Math.random() - 0.5) * 0.3,
+      o: Math.random() * 0.5 + 0.1,
+      pulse: Math.random() * Math.PI * 2
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(function(p) {
+      p.pulse += 0.02;
+      var alpha = p.o * (0.6 + 0.4 * Math.sin(p.pulse));
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(192,200,216,' + alpha + ')';
+      ctx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
 </script>
 
 </body>
